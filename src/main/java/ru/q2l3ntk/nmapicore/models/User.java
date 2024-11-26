@@ -4,13 +4,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.Instant;
+import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(unique = true)
     @Size(min = 2, max = 50)
@@ -23,4 +27,6 @@ public class User {
     private String status;
     @Pattern(regexp = "\\A(activated|deactivated)\\z")
     private String accountStatus = "activated";
+    @DateTimeFormat
+    private Date createdAt = Date.from(Instant.now());
 }
