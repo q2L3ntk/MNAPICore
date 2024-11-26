@@ -27,7 +27,7 @@ public class User {
     private String phoneNumber;
     @Size(min = 60, max = 60)
     private String password;
-    private String status;
+    private String status = "available";
     @Pattern(regexp = "\\A(activated|deactivated)\\z")
     private String accountStatus = "activated";
     @DateTimeFormat
