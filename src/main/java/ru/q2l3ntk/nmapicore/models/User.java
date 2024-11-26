@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
+import ru.q2l3ntk.nmapicore.listeners.UserListener;
 
 import java.time.Instant;
 import java.util.Date;
@@ -12,6 +14,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "user")
+@EntityListeners(UserListener.class)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +26,7 @@ public class User {
     @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$")
     private String phoneNumber;
     @Size(min = 60, max = 60)
-    private String password;
+    public String password;
     private String status;
     @Pattern(regexp = "\\A(activated|deactivated)\\z")
     private String accountStatus = "activated";
