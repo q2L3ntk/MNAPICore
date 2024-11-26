@@ -10,6 +10,6 @@ public class UserListener {
     @PreUpdate
     public void hashPassword(User user) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.password = encoder.encode(user.password);
+        user.setPassword(encoder.encode(user.getPassword()));
     }
 }
