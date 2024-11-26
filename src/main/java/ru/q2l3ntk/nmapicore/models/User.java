@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import ru.q2l3ntk.nmapicore.listeners.UserListener;
 
 import java.time.Instant;
+import java.util.Collection;
 import java.util.Date;
 
 @Data
@@ -25,10 +26,15 @@ public class User {
     @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$")
     private String phoneNumber;
     @Size(min = 60, max = 60)
-    public String password;
+    private String password;
     private String status;
     @Pattern(regexp = "\\A(activated|deactivated)\\z")
     private String accountStatus = "activated";
     @DateTimeFormat
     private Date createdAt = Date.from(Instant.now());
+
+    @OneToMany(mappedBy = "sender", targetEntity = Message.class)
+    private Collection<Message> sentMessages;
+    @OneToMany(mappedBy = "recipient", targetEntity = Message.class)
+    private Collection<Message> receivedMessages;
 }
