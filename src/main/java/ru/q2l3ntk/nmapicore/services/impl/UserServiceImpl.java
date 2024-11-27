@@ -3,7 +3,7 @@ package ru.q2l3ntk.nmapicore.services.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.q2l3ntk.nmapicore.exceptions.InvalidUserIdException;
-import ru.q2l3ntk.nmapicore.exceptions.UserStatusException;
+import ru.q2l3ntk.nmapicore.exceptions.UserStatusEmptyException;
 import ru.q2l3ntk.nmapicore.exceptions.UsernameUnavailableException;
 import ru.q2l3ntk.nmapicore.models.User;
 import ru.q2l3ntk.nmapicore.repositories.UserRepository;
@@ -36,14 +36,14 @@ public class UserServiceImpl implements UserService {
         throw new UsernameUnavailableException(String.format("The username %s is unavailable.", userDetails.getUsername()));
     }
 
-    public User updateUserStatus(User currentUser, User updateDetails) throws UserStatusException {
+    public User updateUserStatus(User currentUser, User updateDetails) throws UserStatusEmptyException {
         if (!updateDetails.getStatus().isEmpty()) {
             currentUser.setStatus(updateDetails.getStatus());
             repository.save(currentUser);
             return currentUser;
         }
 
-        throw new UserStatusException();
+        throw new UserStatusEmptyException();
     }
 
     @Override

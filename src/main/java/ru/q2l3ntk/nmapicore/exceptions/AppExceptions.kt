@@ -12,4 +12,4 @@ class ConversationIdInvalidException(override val message: String) : RuntimeExce
 
 class UserDeactivatedException(override val message: String) : RuntimeException()
 
-class UserStatusException(override val message: String = "A user's status cannot be empty") : RuntimeException()
+class UserStatusEmptyException(override val message: String = "A user's status cannot be empty") : RuntimeException()
