@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name="\"user\"")
 @EntityListeners(UserListener.class)
 public class User {
     @Id
@@ -27,6 +27,7 @@ public class User {
     private String phoneNumber;
     @Size(min = 60, max = 60)
     private String password;
+    private String roles;
     private String status = "available";
     @Pattern(regexp = "\\A(activated|deactivated)\\z")
     private String accountStatus = "activated";
