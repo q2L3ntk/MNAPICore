@@ -14,15 +14,15 @@ public class AppUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-            UserDetails user = (UserDetails) userRepository.findByUsername(username);
+        UserDetails user = (UserDetails) userRepository.findByUsername(username);
 
-            if (user == null) {
-                throw new UsernameNotFoundException(String.format("Username with the username %s not found", username));
-            } else {
-                user.getUsername();
-                user.getPassword();
-                user.getAuthorities();
-                return user;
-            }
+        if (user == null) {
+            throw new UsernameNotFoundException(String.format("Username with the username %s not found", username));
+        } else {
+            user.getUsername();
+            user.getPassword();
+            user.getAuthorities();
+            return user;
+        }
     }
 }
