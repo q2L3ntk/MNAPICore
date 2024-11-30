@@ -1,1 +1,1 @@
-# ![](/doc/icon.png) API Core
+# ![](/doc/icon.png) New Messenger API
