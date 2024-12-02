@@ -1,2 +1,2 @@
-# ![](/doc/icon.png) New Messenger API
+# ![](/doc/icon.png) Android Messenger API Core
 
