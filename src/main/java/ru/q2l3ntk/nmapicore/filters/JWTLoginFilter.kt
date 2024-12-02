@@ -33,6 +33,6 @@ class JWTLoginFilter(url: String, authManager: AuthenticationManager) : Abstract
         chain: FilterChain?,
         authResult: Authentication
     ) {
-        TokenAuthenticationService.addAuthentication(response, authResult.name)
+        TokenAuthenticationService.addAuthentication(response, authResult.name);
     }
 }

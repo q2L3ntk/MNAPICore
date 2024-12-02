@@ -16,6 +16,6 @@ class JWTAuthenticationFilter : GenericFilterBean() {
         val authentication = TokenAuthenticationService.getAuthentication(requst as HttpServletRequest)
 
         SecurityContextHolder.getContext().authentication = authentication
-        filterChain.doFilter(requst, response)
+        filterChain.doFilter(requst, response);
     }
 }
