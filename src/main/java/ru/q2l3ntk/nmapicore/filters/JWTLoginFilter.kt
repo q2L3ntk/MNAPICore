@@ -14,6 +14,7 @@ import ru.q2l3ntk.nmapicore.security.AccountCredentials
 import ru.q2l3ntk.nmapicore.services.tokens.TokenAuthenticationService
 import java.io.IOException
 
+@Deprecated("Due to lack of opportunity to implement")
 class JWTLoginFilter(url: String, authManager: AuthenticationManager) : AbstractAuthenticationProcessingFilter(url, authManager) {
     init {
         authenticationManager = authManager
