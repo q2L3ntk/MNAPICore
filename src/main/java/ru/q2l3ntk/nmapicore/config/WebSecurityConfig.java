@@ -3,7 +3,6 @@ package ru.q2l3ntk.nmapicore.config;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +15,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import ru.q2l3ntk.nmapicore.filters.JWTAuthenticationFilter;
 import ru.q2l3ntk.nmapicore.filters.JWTLoginFilter;
 import ru.q2l3ntk.nmapicore.services.AppUserDetailsService;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
@@ -37,10 +38,10 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.requestMatchers(HttpMethod.POST, "/users/registrations").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/users/login").permitAll())
-                //.addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/users/registrations").authenticated())
+                .formLogin(withDefaults());
+//                .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
