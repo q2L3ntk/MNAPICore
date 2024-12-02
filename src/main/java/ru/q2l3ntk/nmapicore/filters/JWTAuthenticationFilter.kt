@@ -10,13 +10,12 @@ import org.springframework.web.filter.GenericFilterBean
 import ru.q2l3ntk.nmapicore.services.tokens.TokenAuthenticationService
 import java.io.IOException
 
-@Deprecated("Due to lack of opportunity to implement")
 class JWTAuthenticationFilter : GenericFilterBean() {
     @Throws(IOException::class, ServletException::class)
     override fun doFilter(requst: ServletRequest, response: ServletResponse, filterChain: FilterChain) {
         val authentication = TokenAuthenticationService.getAuthentication(requst as HttpServletRequest)
 
         SecurityContextHolder.getContext().authentication = authentication
-        filterChain.doFilter(requst, response);
+        filterChain.doFilter(requst, response)
     }
 }
