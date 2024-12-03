@@ -20,7 +20,7 @@ public class UserAssembler {
     }
 
     public UserListVO toUserListVO(List<User> users) {
-        var userVOList = users.stream().map(this::toUserVO).toList();
+        List<UserVO> userVOList = users.stream().map(this::toUserVO).toList();
         return new UserListVO(userVOList);
     }
 }
