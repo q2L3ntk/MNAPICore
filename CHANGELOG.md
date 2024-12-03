@@ -1,11 +1,12 @@
-# 02.12.2024
+# CHANGELOG 03.12.2024
 ## Added
-- Authorization
-- Create new user (postman)
+- Value objects (user, message, conversation)
+- GET and PUT requests
 ## Implemented
-- App user details
-- Security config
-- Service for user details
+- User controller
+- User assembler (implements user value object)
+- Classes and methods to implement message and conversation objects
 ## Fixes
-- [Remade singing key (jsonwebtoken)](https://github.com/q2L3ntk/NMAPICore/commit/2c8f29b7ff4ce703a66a12b8bd00b47c0da75ea6)
-- [Login filter](https://github.com/q2L3ntk/NMAPICore/commit/b042d35bb7a8fc73786dc901ce2089cdf07c5178)
+- [Method to update user status](https://github.com/q2L3ntk/NMAPICore/commit/1ad98129e4953a749cdb1d5b0330a04c4112ef5a)
+- [Type indication](https://github.com/q2L3ntk/NMAPICore/commit/c0e7e9cc1b4544d91a73a3c78f108e6ecc645a96)
+- [Access to uri](https://github.com/q2L3ntk/NMAPICore/commit/873d090dd84860b9773581ba99fa0e2cbd33c7d9)
