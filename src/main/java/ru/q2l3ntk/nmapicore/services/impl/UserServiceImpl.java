@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
         throw new UsernameUnavailableException(String.format("The username %s is unavailable.", userDetails.getUsername()));
     }
 
+    @Override
     public User updateUserStatus(User currentUser, User updateDetails) throws UserStatusEmptyException {
         if (!updateDetails.getStatus().isEmpty()) {
             currentUser.setStatus(updateDetails.getStatus());

@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface UserService {
     User attemptRegistration(User userDetails);
+    User updateUserStatus(User currentUser, User updateDetails);
     List<User> listUsers(User currentUser);
     User retrieveUserData(String username);
     User retrieveUserData(Long id);
