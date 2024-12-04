@@ -9,6 +9,7 @@ import ru.q2l3ntk.nmapicore.objects.MessageVO;
 import ru.q2l3ntk.nmapicore.services.impl.ConversationServiceImpl;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -28,7 +29,7 @@ public class ConversationAssembler {
         );
     }
 
-    public ConversationListVO toConversationListVO(ArrayList<Conversation> conversations, Long userId) {
+    public ConversationListVO toConversationListVO(List<Conversation> conversations, Long userId) {
         ArrayList<ConversationVO> conversationVOList = conversations.stream().map(
                 conversation -> toConversationVO(conversation, userId)).collect(Collectors.toCollection(ArrayList::new)
         );
