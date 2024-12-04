@@ -38,7 +38,7 @@ public class UserController {
     @GetMapping("/details")
     public ResponseEntity<UserVO> echoDetails(HttpServletRequest request) {
         User user = userRepository.findByUsername(request.getUserPrincipal().getName());
-        return ResponseEntity.ok(userAssembler.toUserVO(user));
+        return ResponseEntity.ok(userAssembler.toUserVO(user)); // return null
     }
 
     @GetMapping
