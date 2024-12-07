@@ -1,12 +1,11 @@
-# CHANGELOG 03.12.2024
+# CHANGELOG 07.12.2024
 ## Added
-- Value objects (user, message, conversation)
-- GET and PUT requests
+- Interceptor 
+- App configurer
 ## Implemented
-- User controller
-- User assembler (implements user value object)
-- Classes and methods to implement message and conversation objects
+- Catching deactivated users
+- Account in config
 ## Fixes
-- [Method to update user status](https://github.com/q2L3ntk/NMAPICore/commit/1ad98129e4953a749cdb1d5b0330a04c4112ef5a)
+- [First workable security config](https://github.com/q2L3ntk/NMAPICore/commit/b09e99a0c757e041f729f05dc8ffe15277eb09b3)
 - [Type indication](https://github.com/q2L3ntk/NMAPICore/commit/c0e7e9cc1b4544d91a73a3c78f108e6ecc645a96)
-- [Access to uri](https://github.com/q2L3ntk/NMAPICore/commit/873d090dd84860b9773581ba99fa0e2cbd33c7d9)
+- [ConversationListVO is now record](https://github.com/q2L3ntk/NMAPICore/commit/ed642a59168784a293ce0158efd1c63259907ce1)
